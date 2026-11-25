@@ -330,13 +330,37 @@ post-nav {
 }
 
 /* ---------- contact form ---------- */
-.inputForm .field-row {
-	margin-bottom: 14px;
+#contact {
+	padding-bottom: 30px;
 }
-.inputForm .field-row::after {
+#contact .contact-hours {
+	color: #323232;
+	margin-bottom: 30px;
+}
+#contact .contact-address {
+	color: #323232;
+	margin-bottom: 20px;
+}
+#contact .contact-direct {
+	clear: both;
+	padding-top: 30px;
+}
+.inputForm::after {
 	content: "";
 	display: table;
 	clear: both;
+}
+.inputForm label {
+	font-weight: bold;
+	color: #323232;
+	margin: 10px 0 4px;
+}
+.inputForm .field-clear {
+	clear: both;
+}
+.inputForm textarea {
+	height: 100px;
+	resize: vertical;
 }
 .inputForm input[type='email'] {
 	width: 100%;
@@ -392,4 +416,100 @@ post-nav {
 	line-height: 1;
 	color: #388832;
 	margin: 0 0 10px;
+}
+.not-found h1 {
+	margin-bottom: 15px;
+}
+.not-found .btn1 {
+	display: inline-block;
+	margin: 15px 0 25px;
+}
+.not-found .btn1:hover {
+	text-decoration: none;
+}
+
+/* ---------- page content ---------- */
+.rates {
+	margin: 10px 0 30px;
+}
+.rates th,
+.rates td {
+	padding: 12px 40px 12px 0;
+	border-bottom: 1px solid #e3e3e3;
+	text-align: left;
+}
+.rates th {
+	color: #323232;
+}
+.rates th + th,
+.rates td + td {
+	text-align: center;
+	padding-right: 0;
+}
+.server-photos {
+	text-align: center;
+	padding-top: 10px;
+}
+.server-photos img {
+	max-width: 100%;
+	height: auto;
+}
+.logo-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.logo-list li {
+	padding: 22px 0;
+	border-bottom: 1px solid #e3e3e3;
+}
+.logo-list li:last-child {
+	border-bottom: 0;
+}
+.logo-list img {
+	max-width: 100%;
+	height: auto;
+}
+.logo-list .logo-band {
+	background: #fff;
+}
+.resume h2.resume-summary {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: none;
+	padding-top: 10px;
+}
+.resume .skills {
+	display: flex;
+	flex-wrap: wrap;
+}
+.resume .skills p {
+	flex: 1 1 200px;
+	margin-bottom: 15px;
+}
+.resume .page-text > strong {
+	display: block;
+	color: #323232;
+	margin-top: 12px;
+}
+.resume .page-text ul {
+	margin-bottom: 12px;
+}
+.plain-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 20px;
+}
+[ng-cloak] {
+	display: none !important;
+}
+.calculator-notice {
+	padding: 14px 18px;
+	border: 1px solid #388832;
+	border-radius: 3px;
+	background: #e3f3e1;
+	color: #454545;
+	font-size: 14px;
 }

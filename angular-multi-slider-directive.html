@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Multi Slider Directive</title>
+  <meta name="description" content="Live demo of a pure AngularJS multi-handle slider directive with no jQuery dependencies.">
+  <meta name="keywords" content="Angular Multiple Slider Directive, Multi Slider, Angular, Directive, Range">
+  <meta name="author" content="Enkode">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700%7CJockey+One%7COswald&display=swap">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/posts.js"></script>
+  <script src="assets/js/site.js"></script>
+  <link rel="stylesheet" href="assets/multislider/multislider.css">
+  <script src="assets/multislider/angular.min.js"></script>
+  <script src="assets/multislider/multislider.js"></script>
+  <script src="assets/multislider/app.js"></script>
+</head>
+<body>
+  <site-header></site-header>
+
+  <main id="content">
+    <div class="row_9"><div class="container"><div class="row"><div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="content-box-left">
+        <div id="page">
+          <h1>Angular Multi Slider Directive</h1>
+          <div class="page-text">
+            <div ng-app="multiSliderDemo">
+              <div ng-controller="DemoCtrl">
+                <p>Pure Angular slider control with no JQuery Dependencies. This demo utilizes <a href="https://angular-ui.github.io/bootstrap/" target="_blank" rel="noopener">UI Bootstrap</a> version 0.14.3 which also requires ngAnimate. These are not required for the angular-multi-slider, just for this demo.</p>
+                <p>Read the write-up: <a href="post/angular-multi-slider-directive.html">Angular Multiple Sliders Directive</a></p>
+                <article>
+                  <h2>Single Slider - Hover / Grab Bubble</h2>
+                  <fieldset class="row">
+                    <section class="col-sm-4">
+                      <pre ng-cloak>{{ slider | json }}</pre>
+                    </section>
+                    <section class="col-sm-6 padding-10">
+                      <div multi-slider="" floor="0" ceiling="500" step="10" precision="2" bubbles="false" ng-model="slider"></div>
+                    </section>
+                  </fieldset>
+                </article>
+                <hr>
+                <article>
+                  <h2>Multiple Sliders with defined Colors in a Form - Persistent Bubbles</h2>
+                  <form name="sliderForm" id="sliderForm" novalidate="" autocomplete="off">
+                    <fieldset class="row">
+                      <section class="col-sm-4">
+                        <pre ng-cloak>{{ sliders | json }}</pre>
+                      </section>
+                      <section class="col-sm-6 padding-10">
+                        <multi-slider name="mySlider" floor="0" step="10" precision="2" ceiling="500" bubbles="true" ng-model="sliders"></multi-slider>
+                      </section>
+                      <section class="col-sm-2">
+                        <p ng-cloak>
+                          Form Dirty: {{ sliderForm.$dirty }}<br>
+                          Form Pristine: {{ sliderForm.$pristine }}<br>
+                          Slider Dirty: {{ sliderForm.mySlider.$dirty }}<br>
+                          Slider Pristine: {{ sliderForm.mySlider.$pristine }}
+                        </p>
+                      </section>
+                    </fieldset>
+                  </form>
+                </article>
+              </div>
+            </div>
+            <hr>
+            <h2>Angular Multiple Slider Image</h2>
+            <img title="Angular Multiple Slider" alt="Screenshot of the Angular multiple slider control" src="assets/multislider/angular-multiple-sliders.png">
+          </div>
+        </div>
+      </div>
+    </div></div></div></div>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
