@@ -329,7 +329,7 @@ post-nav {
 	white-space: nowrap;
 }
 
-/* ---------- contact form ---------- */
+/* ---------- contact page ---------- */
 #contact {
 	padding-bottom: 30px;
 }
@@ -339,70 +339,20 @@ post-nav {
 }
 #contact .contact-address {
 	color: #323232;
+	margin-bottom: 30px;
+}
+.contact-linkedin p {
+	font-size: 16px;
 	margin-bottom: 20px;
 }
-#contact .contact-direct {
-	clear: both;
-	padding-top: 30px;
+.contact-linkedin .btn1 {
+	display: inline-block;
 }
-.inputForm::after {
-	content: "";
-	display: table;
-	clear: both;
+.contact-linkedin .btn1:hover {
+	text-decoration: none;
 }
-.inputForm label {
-	font-weight: bold;
-	color: #323232;
-	margin: 10px 0 4px;
-}
-.inputForm .field-clear {
-	clear: both;
-}
-.inputForm textarea {
-	height: 100px;
-	resize: vertical;
-}
-.inputForm input[type='email'] {
-	width: 100%;
-	margin: 0;
-	display: block;
-	outline: none;
-	box-shadow: none;
-	box-sizing: border-box;
-	float: left;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 12px;
-	line-height: 18px;
-	color: #949393;
-	font-weight: normal;
-	border-radius: 3px;
-	padding: 10px 10px 11px 17px;
-	border: 1px solid #949393;
-	background: #FFF;
-}
-.inputForm input:focus,
-.inputForm textarea:focus {
-	border-color: #388832;
-}
-.inputForm .form-actions {
-	clear: both;
-	padding-top: 16px;
-}
-.form-status {
-	clear: both;
-	margin: 16px 0 0;
-	padding: 10px 14px;
-	border-radius: 3px;
-	font-size: 14px;
-	color: #454545;
-}
-.form-status-ok {
-	background: #e3f3e1;
-	border: 1px solid #388832;
-}
-.form-status-error {
-	background: #fbe9e7;
-	border: 1px solid #c0392b;
+.contact-linkedin .btn1 .fa {
+	margin-right: 8px;
 }
 
 /* ---------- not found page ---------- */

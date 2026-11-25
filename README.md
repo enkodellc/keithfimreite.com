@@ -36,7 +36,7 @@ logo-designs.html              Logo designs
 software-engineer-resume.html  Resume
 aspnet-saas-web-application-development.html
 responsive-design.html
-contact.html                   Contact form (opens the visitor's e-mail app)
+contact.html                   Contact page (points visitors to LinkedIn)
 blog.html                      Post list; also handles ?tag=... and ?category=...
 angular-multi-slider-directive.html   Live demo page for the slider post
 privacy-policy.html
@@ -44,7 +44,7 @@ privacy-policy.html
 post/                          One file per blog post
 assets/
   css/        bootstrap.css, theme.css (original theme), font-awesome.css, site.css (additions)
-  js/         site.js (header, footer, menu, slider, post list, contact form), posts.js (post index)
+  js/         site.js (header, footer, menu, slider, post list), posts.js (post index)
   img/        Theme images and icons
   uploads/    Content images (portfolio screenshots, logos, photos)
   fonts/      Font Awesome and Glyphicons
@@ -54,7 +54,7 @@ assets/
 
 ## Common edits
 
-- **Menu, phone, e-mail, address, social links**: the `SITE` object at the top of `assets/js/site.js`.
+- **Menu, phone, address, social links**: the `SITE` object at the top of `assets/js/site.js`.
   The header and footer of every page are drawn from it.
 - **Add a post**: copy a file in `post/`, change its content, then add an entry at the top of
   `assets/js/posts.js`. That list feeds the blog page, the footer's "Recent Posts" and the
@@ -67,8 +67,8 @@ assets/
   in the header now opens the blog page.
 - The old Google Analytics (Universal Analytics) snippet was removed; that service has been shut down.
 - jQuery and its plugins were replaced by a small amount of plain JavaScript.
-- The contact form has no server to post to, so it opens the visitor's e-mail app with the message filled
-  in, addressed to `keith@KeithFimreite.com`.
+- The contact form needed the server and is gone. The contact page now sends visitors to the Enkode
+  LinkedIn page instead.
 - The multi slider demo loads its scripts from this site. On the old site they were requested over
   `http://` and blocked by browsers.
 

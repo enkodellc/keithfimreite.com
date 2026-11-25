@@ -20,7 +20,6 @@
    * ------------------------------------------------------------------ */
   var SITE = {
     name: 'Enkode LLC',
-    email: 'keith@KeithFimreite.com',
     phone: { href: 'tel:14802695839', label: '+1 480-269-5839' },
     address: ['Desert Ridge', 'Phoenix, AZ 85054'],
     menu: [
@@ -358,45 +357,6 @@
     start();
   }
 
-  /* --------------------------- contact form --------------------------- */
-
-  // There is no server behind this site, so the form hands the message to the visitor's own mail app.
-  function initContactForm(form) {
-    var status = form.querySelector('[data-form-status]');
-
-    function setStatus(message, isError) {
-      if (!status) return;
-      status.textContent = message;
-      status.className = 'form-status ' + (isError ? 'form-status-error' : 'form-status-ok');
-      status.hidden = false;
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var subject = form.elements.subject.value.trim();
-      var message = form.elements.message.value.trim();
-
-      if (!name || !email || !message) {
-        setStatus('Please fill in your name, e-mail and message.', true);
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setStatus('Please enter a valid e-mail address.', true);
-        return;
-      }
-
-      var body = message + '\n\n' + name + '\n' + email;
-      window.location.href = 'mailto:' + SITE.email +
-        '?subject=' + encodeURIComponent('Enkode - ' + (subject || 'Website enquiry')) +
-        '&body=' + encodeURIComponent(body);
-
-      setStatus('Your e-mail app should now be open with the message ready to send. ' +
-        'If nothing happened, write to ' + SITE.email + ' directly.', false);
-    });
-  }
-
   /* --------------------------- back to top ---------------------------- */
 
   function initToTop() {
@@ -420,7 +380,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.forEach.call(document.querySelectorAll('.hero-slider'), initSlider);
-    Array.prototype.forEach.call(document.querySelectorAll('form[data-contact-form]'), initContactForm);
     initToTop();
   });
 })();
