@@ -15,16 +15,29 @@ python3 -m http.server 8347
 Then open <http://localhost:8347/>. Opening `index.html` straight from disk also works, apart from the
 custom 404 page.
 
-## Deploy
+## Deploy on GitHub Pages
 
-Upload the whole folder to the web root of the host (GitHub Pages, Netlify, Cloudflare Pages, S3, IIS,
-nginx, shared hosting, and so on). Notes:
+1. Put these files in a GitHub repository, with `index.html` at the top level.
+2. In the repository, open **Settings → Pages**. Under "Build and deployment" choose **Deploy from a
+   branch**, pick the `main` branch and the `/ (root)` folder, and save.
+3. Under "Custom domain" enter `keithfimreite.com` and save. GitHub adds a `CNAME` file to the repository.
+4. At the domain's DNS provider, point the domain at GitHub Pages: four `A` records for
+   `keithfimreite.com` (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and a
+   `CNAME` record for `www` pointing to `<username>.github.io`. GitHub's
+   [custom domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+   has the current values.
+5. When GitHub has issued the certificate, tick **Enforce HTTPS**.
 
-- `404.html` uses root-absolute paths (`/assets/...`) so it works for any missing address. Point the host's
-  "not found" page at it. Every other page uses relative paths and also works from a sub-folder.
-- `sitemap.xml` and `robots.txt` assume the site lives at `https://keithfimreite.com/`.
-- The old addresses ended in `.aspx` (for example `/page/logo-designs.aspx`). They are not redirected by
-  these files; see "Old addresses" below if you want to keep them working.
+Until the domain points at GitHub, the site is at `https://<username>.github.io/<repository>/`. Everything
+works there except the ROI calculator (see below).
+
+Notes:
+
+- `.nojekyll` tells GitHub Pages to publish the files exactly as they are.
+- `404.html` is what GitHub Pages shows for any missing address.
+- `sitemap.xml`, `robots.txt` and the stand-in pages for old addresses assume the site lives at
+  `https://keithfimreite.com/`.
+- Nothing here is specific to GitHub: any static host can serve the same files.
 
 ## Layout
 
@@ -42,6 +55,8 @@ angular-multi-slider-directive.html   Live demo page for the slider post
 privacy-policy.html
 404.html
 post/                          One file per blog post
+*.aspx/, page/, category/, author/, syndication.axd/
+                               Stand-in pages that forward the old addresses (see "Old addresses")
 assets/
   css/        bootstrap.css, theme.css (original theme), font-awesome.css, site.css (additions)
   js/         site.js (header, footer, menu, slider, post list), posts.js (post index)
@@ -107,16 +122,23 @@ challenge.
 
 ### Old addresses
 
+GitHub Pages cannot send redirects, so each old address has a small stand-in page that forwards the
+visitor to the new page and tells search engines where the page now lives. A stand-in is a folder named
+like the old file with an `index.html` inside, for example `page/logo-designs.aspx/index.html`. There are
+38 of them; none is linked from the site, and they can be deleted once the old addresses no longer matter.
+
 | Old | New |
 | --- | --- |
-| `/` and `/default.aspx` | `/index.html` |
-| `/page/<name>.aspx` | `/<name>.html` |
+| `/default.aspx`, `/enkode-custom-web-application-development.aspx` | `/index.html` |
+| `/page/<name>.aspx` and `/<name>.aspx` | `/<name>.html` |
 | `/post/<name>.aspx` | `/post/<name>.html` |
 | `/contact.aspx` | `/contact.html` |
-| `/angular-multi-slider-directive.aspx` | `/angular-multi-slider-directive.html` |
-| `/blog.aspx`, `/archive.aspx`, `/author/keith.aspx` | `/blog.html` |
-| `/?tag=/<tag>` | `/blog.html?tag=<tag>` |
+| `/blog.aspx`, `/archive.aspx`, `/search.aspx`, `/author/keith.aspx`, `/syndication.axd` | `/blog.html` |
 | `/category/<name>.aspx` | `/blog.html?category=<name>` |
+| `/?tag=/<tag>` | `/blog.html?tag=<tag>` (forwarded by `assets/js/site.js`) |
+
+The old server ignored upper and lower case in addresses and GitHub Pages does not, so `404.html` sends
+an old address typed with capitals (`/page/Logo-Designs.aspx`) to its lower-case form.
 
 ### Not carried over
 

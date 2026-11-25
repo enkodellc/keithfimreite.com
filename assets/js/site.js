@@ -9,7 +9,7 @@
  *   <post-list>    post index for blog.html, filtered by ?tag= or ?category=
  *   <post-nav>     previous / next links at the bottom of a post
  *
- * It also runs the home page slider, the contact form and the back-to-top button.
+ * It also runs the home page slider and the back-to-top button, and forwards old tag links.
  * No libraries and no build step: load posts.js and this file in <head>.
  */
 (function () {
@@ -84,6 +84,14 @@
 
   function categoryUrl(category) {
     return url('blog.html?category=' + encodeURIComponent(category.toLowerCase()));
+  }
+
+  // Tag links on the old site looked like /?tag=/material+design; send them to the blog page.
+  var oldTag = /[?&]tag=\/([^&]+)/.exec(window.location.search);
+  if (oldTag) {
+    try {
+      window.location.replace(tagUrl(decodeURIComponent(oldTag[1].replace(/\+/g, ' '))));
+    } catch (e) { /* malformed address: stay on this page */ }
   }
 
   function define(name, render) {
