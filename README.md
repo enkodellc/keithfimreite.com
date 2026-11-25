@@ -54,7 +54,7 @@ assets/
 
 ## Common edits
 
-- **Menu, phone, address, social links**: the `SITE` object at the top of `assets/js/site.js`.
+- **Menu, address, social links**: the `SITE` object at the top of `assets/js/site.js`.
   The header and footer of every page are drawn from it.
 - **Add a post**: copy a file in `post/`, change its content, then add an entry at the top of
   `assets/js/posts.js`. That list feeds the blog page, the footer's "Recent Posts" and the
@@ -68,7 +68,7 @@ assets/
 - The old Google Analytics (Universal Analytics) snippet was removed; that service has been shut down.
 - jQuery and its plugins were replaced by a small amount of plain JavaScript.
 - The contact form needed the server and is gone. The contact page now sends visitors to the Enkode
-  LinkedIn page instead.
+  LinkedIn page instead. The phone number and e-mail address were taken off the whole site.
 - The multi slider demo loads its scripts from this site. On the old site they were requested over
   `http://` and blocked by browsers.
 

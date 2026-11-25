@@ -16,11 +16,10 @@
   'use strict';
 
   /* ------------------------------------------------------------------ *
-   * Site settings: edit the menu, contact details and social links here.
+   * Site settings: edit the menu, address and social links here.
    * ------------------------------------------------------------------ */
   var SITE = {
     name: 'Enkode LLC',
-    phone: { href: 'tel:14802695839', label: '+1 480-269-5839' },
     address: ['Desert Ridge', 'Phoenix, AZ 85054'],
     menu: [
       { label: 'Home', href: 'index.html' },
@@ -178,7 +177,6 @@
               '<p class="title4">our Location</p>' +
               '<div class="smalladdress">' +
                 '<p class="mainaddress">' + SITE.address.map(esc).join('<br>') + '</p>' +
-                '<p>Telephone:<span><a href="' + SITE.phone.href + '">' + esc(SITE.phone.label) + '</a></span></p>' +
               '</div>' +
             '</div>' +
             '<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 footercol1">' +
